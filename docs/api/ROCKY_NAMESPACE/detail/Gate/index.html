@@ -11,16 +11,19 @@
       
       
       
+        
+      
+      
       <link rel="icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
-        <title>class SentryTracker - Rocky</title>
+        <title>class Gate - Rocky</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.84d31ad4.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.618322db.min.css">
       
       
 
@@ -45,7 +48,6 @@
 
     
     
-    
   </head>
   
   
@@ -58,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#class-sentrytracker" class="md-skip">
+        <a href="#class-gate" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              class SentryTracker
+              class Gate
             
           </span>
         </div>
@@ -195,9 +197,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Home
+  
+
     
   </span>
+  
   
 
       </a>
@@ -228,9 +235,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     API Reference
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -239,7 +251,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            API Reference
+            
+  
+    API Reference
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -255,9 +271,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     API Index
+  
+
     
   </span>
+  
   
 
       </a>
@@ -300,27 +321,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#members" class="md-nav__link">
-    <span class="md-ellipsis">
-      Members
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#records" class="md-nav__link">
-    <span class="md-ellipsis">
-      Records
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#functions" class="md-nav__link">
     <span class="md-ellipsis">
-      Functions
+      
+        Functions
+      
     </span>
   </a>
   
@@ -328,63 +333,33 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#sentrytracker" class="md-nav__link">
+  <a href="#gate" class="md-nav__link">
     <span class="md-ellipsis">
-      SentryTracker
+      
+        Gate
+      
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#reset" class="md-nav__link">
+  <a href="#lock" class="md-nav__link">
     <span class="md-ellipsis">
-      reset
+      
+        lock
+      
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#emplace" class="md-nav__link">
+  <a href="#unlock" class="md-nav__link">
     <span class="md-ellipsis">
-      emplace
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#update" class="md-nav__link">
-    <span class="md-ellipsis">
-      update
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#emplace_or_update" class="md-nav__link">
-    <span class="md-ellipsis">
-      emplace_or_update
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#flush" class="md-nav__link">
-    <span class="md-ellipsis">
-      flush
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#snapshot" class="md-nav__link">
-    <span class="md-ellipsis">
-      snapshot
+      
+        unlock
+      
     </span>
   </a>
   
@@ -405,50 +380,28 @@
           
           
             <div class="md-content" data-md-component="content">
+              
               <article class="md-content__inner md-typeset">
                 
                   
 
 
 
-<h1 id="class-sentrytracker">class SentryTracker</h1>
-<p><em>Defined at src/rocky/SentryTracker.h#21</em></p>
-<p>Tracks usage data by maintaining a sentry-blocked linked list. Each time a something calls "emplace_or_update" the corresponding record moves to the right of the sentry marker. After a cycle you can call flush to process all users that did not call update() in the that cycle and dispose of them.</p>
-<h2 id="members">Members</h2>
-<p>public int _list</p>
-<p>public int _sentryptr</p>
-<p>public unsigned int _size</p>
-<h2 id="records">Records</h2>
-<p>ListEntry</p>
+<h1 id="class-gate">class Gate</h1>
+<p><em>Defined at src/rocky/Threading.h#46</em></p>
+<p>Primitive that only allows one thread at a time access to a keyed resourse </p>
 <h2 id="functions">Functions</h2>
-<h3 id="sentrytracker">SentryTracker<T></h3>
-<p><em>public void SentryTracker<T>()</em></p>
-<p><em>Defined at src/rocky/SentryTracker.h#34</em></p>
-<p>Construct a new tracker.</p>
-<h3 id="reset">reset</h3>
-<p><em>public void reset()</em></p>
-<p><em>Defined at src/rocky/SentryTracker.h#41</em></p>
-<p>Resets the tracker to its initial state. Tracked objects are NOT disposed.</p>
-<h3 id="emplace">emplace</h3>
-<p><em>public void * emplace(const T &amp; data)</em></p>
-<p><em>Defined at src/rocky/SentryTracker.h#55</em></p>
-<p>Emplace a new item in the tracker, and receive a token to use when calling update().</p>
-<h3 id="update">update</h3>
-<p><em>public void * update(void * token)</em></p>
-<p><em>Defined at src/rocky/SentryTracker.h#66</em></p>
-<p>Inform the tracker that the object associated with the token is still in use, and return a new token to replace the old one.</p>
-<h3 id="emplace_or_update">emplace_or_update</h3>
-<p><em>public void * emplace_or_update(const T &amp; data, void * token)</em></p>
-<p><em>Defined at src/rocky/SentryTracker.h#79</em></p>
-<p>Calls emplace if token is null, otherwise called update and returns a new token.</p>
-<h3 id="flush">flush</h3>
-<p><em>public void flush(unsigned int maxCount, CALLABLE &amp;&amp; dispose)</em></p>
-<p><em>Defined at src/rocky/SentryTracker.h#90</em></p>
-<p>Removes any tracked objects that were not updated since the last flush, and calls dispose() on each one.</p>
-<h3 id="snapshot">snapshot</h3>
-<p><em>public int snapshot()</em></p>
-<p><em>Defined at src/rocky/SentryTracker.h#125</em></p>
-<p>Snapshot of the object list (for debugging)</p>
+<h3 id="gate">Gate<T></h3>
+<p><em>public void Gate<T>()</em></p>
+<p><em>Defined at src/rocky/Threading.h#49</em></p>
+<h3 id="lock">lock</h3>
+<p><em>public void lock(const T &amp; key)</em></p>
+<p><em>Defined at src/rocky/Threading.h#52</em></p>
+<p>Lock key's gate</p>
+<h3 id="unlock">unlock</h3>
+<p><em>public void unlock(const T &amp; key)</em></p>
+<p><em>Defined at src/rocky/Threading.h#63</em></p>
+<p>Unlock the key's gate</p>
 
 
 
@@ -497,10 +450,11 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
     
   </body>
